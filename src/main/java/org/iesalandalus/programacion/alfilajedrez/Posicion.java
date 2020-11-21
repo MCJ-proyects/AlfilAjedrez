@@ -20,6 +20,9 @@ public class Posicion {
 	
 	//constructor copia de la clase Posicion                                                              
 	public Posicion(final Posicion p) {
+		if(p == null) {
+			throw new NullPointerException("ERROR: No es posible copiar una posiciÃ³n nula.");
+		}
 	        fila = p.fila;
 	        columna = p.columna;
 	}
@@ -39,6 +42,13 @@ public class Posicion {
 		}
 		Posicion other = (Posicion) obj;
 		return columna == other.columna && fila == other.fila;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "fila=" + fila + ", columna=" + columna;
 	}
 
 	//************ creación de get y set *************************
