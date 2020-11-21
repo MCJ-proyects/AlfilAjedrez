@@ -13,6 +13,17 @@ public class Alfil {
 		this.setPosicion(new Posicion(8,"f".charAt(0)));
 	}
 	
+	public Alfil(Color color) {
+		
+		this.setColor(color);
+		
+		if (color == Color.BLANCO) {
+			this.setPosicion(new Posicion(1,"f".charAt(0)));
+		} else {
+			this.setPosicion(new Posicion(8,"f".charAt(0)));
+		}
+	}
+	
 	public Color getColor() {
 		return color;
 	}
