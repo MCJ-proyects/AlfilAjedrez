@@ -78,6 +78,11 @@ public class Alfil {
 		return color == other.color && Objects.equals(posicion, other.posicion);
 	}
 
+	@Override
+	public String toString() {
+		return "Alfil [color=" + color + ", posicion=" + posicion + "]";
+	}
+
 	public Color getColor() {
 		return color;
 	}
