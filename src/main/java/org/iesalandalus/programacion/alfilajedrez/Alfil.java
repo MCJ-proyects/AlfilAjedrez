@@ -24,6 +24,20 @@ public class Alfil {
 		}
 	}
 	
+	public Alfil(Color color, char columna) {
+		if (columna != 'c' || columna != 'f') {
+			throw new IllegalArgumentException("ERROR: Columna inicial no válida para Alfil.");
+		}
+		
+		this.setColor(color);
+		
+		if (color == Color.BLANCO) {
+			this.setPosicion(new Posicion(1, columna));
+		} else {
+			this.setPosicion(new Posicion(8, columna));
+		}
+	}
+	
 	public Color getColor() {
 		return color;
 	}
