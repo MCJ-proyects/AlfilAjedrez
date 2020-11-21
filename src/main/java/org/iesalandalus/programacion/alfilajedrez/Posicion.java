@@ -9,6 +9,12 @@ public class Posicion {
 		setColumna(columna);
 	}
 	
+	//constructor copia de la clase Posicion                                                              
+	public Posicion(final Posicion p) {
+	        fila = p.fila;
+	        columna = p.columna;
+	}
+	
 	public int getFila() {
 		return fila;
 	}
