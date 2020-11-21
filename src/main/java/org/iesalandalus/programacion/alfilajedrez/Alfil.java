@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.alfilajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Alfil {
 	
 	private Color color;
@@ -14,13 +16,11 @@ public class Alfil {
 	}
 	
 	public Alfil(Color color) {
-		
-		this.setColor(color);
-		
+		Alfil alfil = new Alfil(color);
 		if (color == Color.BLANCO) {
-			this.setPosicion(new Posicion(1,"f".charAt(0)));
+			alfil.setPosicion(new Posicion(1,"f".charAt(0)));
 		} else {
-			this.setPosicion(new Posicion(8,"f".charAt(0)));
+			alfil.setPosicion(new Posicion(8,"f".charAt(0)));
 		}
 	}
 	
@@ -35,6 +35,27 @@ public class Alfil {
 			this.setPosicion(new Posicion(1, columna));
 		} else {
 			this.setPosicion(new Posicion(8, columna));
+		}
+	}
+	
+	public void mover(Direccion direccion, int pasos) throws OperationNotSupportedException {
+		String letras = "abcdefgh";
+		int numColumna = letras.indexOf(this.getPosicion().getColumna()) +1;
+		
+		if(direccion == null) {
+			throw new IllegalArgumentException("ERROR: La dirección no es válida.");
+		}
+		
+		if(pasos > 0) {
+				int filaFutura = this.getPosicion().getFila() + pasos;
+				int columnaFutura = numColumna + pasos;
+				if( filaFutura > 8 || columnaFutura > 8) {
+					throw new OperationNotSupportedException("ERROR: Movimiento no válido (se sale del tablero).");
+				} else {
+					this.setPosicion(new Posicion(filaFutura, letras.charAt(columnaFutura)));
+				}
+		} else {
+				throw new IllegalArgumentException("ERROR: La dirección no puede ser nula.");
 		}
 	}
 	
