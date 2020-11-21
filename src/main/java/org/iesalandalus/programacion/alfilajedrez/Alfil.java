@@ -5,18 +5,29 @@ public class Alfil {
 	private Color color;
 	private Posicion posicion;
 	
+	public Alfil() {
+		//Posicion p1 = new Posicion(8,"f".charAt(0));
+		//this.setPosicion(p1);
+		
+		this.setColor(Color.NEGRO);
+		this.setPosicion(new Posicion(8,"f".charAt(0)));
+	}
+	
 	public Color getColor() {
 		return color;
 	}
+	
 	private void setColor(Color color) {
 		if (color != Color.BLANCO || color != Color.NEGRO) {
 			throw new IllegalArgumentException("ERROR: El color no es válido.");
 		}
 		this.color = color;
 	}
+	
 	public Posicion getPosicion() {
 		return posicion;
 	}
+	
 	private void setPosicion(Posicion posicion) {
 		this.posicion = posicion;
 	}
@@ -24,3 +35,4 @@ public class Alfil {
 	
 	
 }
+
